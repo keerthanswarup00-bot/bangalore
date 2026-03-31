@@ -500,17 +500,16 @@
   }
 
   .saved-launchers {
-    position: fixed;
-    right: 18px;
-    bottom: 18px;
-    z-index: 35;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 8px;
+    margin-top: 0.9rem;
   }
 
   .saved-launcher {
-    min-width: 140px;
+    min-width: 116px;
+    padding: 8px 10px;
+    font-size: 10px;
   }
 
   .saved-drawer {
@@ -828,12 +827,16 @@
     }
 
     .saved-launchers {
-      right: 12px;
-      bottom: 12px;
+      width: 100%;
+      justify-content: flex-start;
+      margin-top: 0.75rem;
     }
 
     .saved-launcher {
-      min-width: 124px;
+      min-width: 0;
+      flex: 0 1 auto;
+      padding: 7px 10px;
+      font-size: 9px;
     }
   }
 </style>
@@ -877,6 +880,10 @@
     <button class="action-btn secondary-btn" id="reset-btn" type="button">Reset Filters</button>
   </div>
   <div class="counter" id="counter"></div>
+  <div class="saved-launchers">
+    <button class="action-btn secondary-btn saved-launcher" id="favorites-toggle-btn" type="button">Favorites</button>
+    <button class="action-btn secondary-btn saved-launcher" id="recent-toggle-btn" type="button">Recent</button>
+  </div>
   <div class="day-plan" id="day-plan"></div>
 </div>
 
@@ -885,10 +892,6 @@
   <div class="mood-grid" id="mood-grid"></div>
 </div>
 
-<div class="saved-launchers">
-  <button class="action-btn secondary-btn saved-launcher" id="favorites-toggle-btn" type="button">Favorites</button>
-  <button class="action-btn secondary-btn saved-launcher" id="recent-toggle-btn" type="button">Recent</button>
-</div>
 <div class="drawer-backdrop" id="drawer-backdrop"></div>
 <aside class="saved-drawer" id="saved-drawer" aria-hidden="true">
   <div class="saved-drawer-head">
