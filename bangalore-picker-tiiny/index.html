@@ -128,9 +128,15 @@
   }
 
   .hero-actions {
-    display: flex;
+    display: grid;
+    gap: 12px;
+    margin-top: 0.35rem;
+  }
+
+  .hero-actions-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
-    flex-wrap: wrap;
   }
 
   .search-box {
@@ -407,24 +413,151 @@
     background: #1f1f1f;
   }
 
+  .hero-tool {
+    width: 100%;
+    min-height: 54px;
+    border-radius: 10px;
+    padding: 0.85rem 0.95rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.22rem;
+    transition: transform 0.14s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-tool:active {
+    transform: translateY(1px);
+  }
+
+  .hero-tool::after {
+    content: "";
+    position: absolute;
+    inset: auto -18px -26px auto;
+    width: 72px;
+    height: 72px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+
+  .hero-tool-badge {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-bottom: 0.28rem;
+    padding: 0.18rem 0.42rem;
+    border-radius: 999px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #d8d8d8;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .hero-tool-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .hero-tool-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-tool.plan-btn {
+    background:
+      radial-gradient(circle at top right, rgba(232,255,77,0.22), transparent 45%),
+      linear-gradient(135deg, rgba(232,255,77,0.14) 0%, rgba(232,255,77,0.04) 100%);
+    border-color: rgba(232,255,77,0.42);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(232,255,77,0.08);
+    min-height: 44px;
+    padding: 0.76rem 0.9rem;
+  }
+
+  .hero-tool.plan-btn:hover {
+    background: linear-gradient(135deg, rgba(232,255,77,0.22) 0%, rgba(232,255,77,0.08) 100%);
+    border-color: rgba(232,255,77,0.55);
+  }
+
+  .hero-tool.plan-btn .hero-tool-title {
+    color: var(--accent);
+  }
+
+  .hero-tool.plan-btn .hero-tool-badge {
+    color: #f2ff99;
+    border-color: rgba(232,255,77,0.22);
+    background: rgba(232,255,77,0.08);
+  }
+
+  .hero-tool.reset-btn {
+    background:
+      radial-gradient(circle at top right, rgba(255,140,140,0.22), transparent 48%),
+      linear-gradient(135deg, rgba(255,132,132,0.2) 0%, rgba(255,98,98,0.08) 100%);
+    border-color: rgba(255,120,120,0.62);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,120,120,0.12);
+  }
+
+  .hero-tool.reset-btn:hover {
+    background: linear-gradient(135deg, rgba(255,132,132,0.24) 0%, rgba(255,98,98,0.12) 100%);
+    border-color: rgba(255,120,120,0.75);
+  }
+
+  .hero-tool.reset-btn .hero-tool-title {
+    color: #ffb4b4;
+  }
+
+  .hero-tool.reset-btn .hero-tool-meta {
+    color: #d6a3a3;
+  }
+
+  .hero-tool.reset-btn .hero-tool-badge {
+    color: #ffd1d1;
+    border-color: rgba(255,170,170,0.24);
+    background: rgba(255,170,170,0.08);
+  }
+
   .spin-btn {
     width: 100%;
-    padding: 1.1rem 2rem;
-    background: var(--accent);
+    padding: 1.15rem 1.25rem;
+    background: linear-gradient(135deg, #e8ff4d 0%, #d9f13f 100%);
     color: #0e0e0e;
     font-family: 'Syne', sans-serif;
-    font-size: 1rem;
+    font-size: 1.02rem;
     font-weight: 800;
     letter-spacing: 0.04em;
     border: none;
-    border-radius: 2px;
+    border-radius: 12px;
     cursor: pointer;
     text-transform: uppercase;
-    transition: background 0.15s, transform 0.1s;
+    transition: background 0.15s, transform 0.1s, box-shadow 0.18s ease;
+    box-shadow: 0 18px 40px rgba(216,241,63,0.18);
   }
 
-  .spin-btn:hover { background: #d4eb3a; }
+  .spin-btn:hover {
+    background: linear-gradient(135deg, #eeff79 0%, #dff34b 100%);
+    box-shadow: 0 22px 44px rgba(216,241,63,0.22);
+  }
   .spin-btn:active { transform: scale(0.98); }
+
+  .spin-btn-sub {
+    display: block;
+    margin-top: 0.3rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: rgba(14,14,14,0.7);
+  }
 
   .counter {
     font-family: 'Space Mono', monospace;
@@ -439,6 +572,53 @@
     width: 100%;
     max-width: 700px;
     margin-bottom: 1rem;
+  }
+
+  .utility-row {
+    width: 100%;
+    max-width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .toggle-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.9rem;
+    cursor: pointer;
+  }
+
+  .toggle-tile.active {
+    border-color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--accent);
+  }
+
+  .toggle-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .sort-select {
+    width: 100%;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.95rem 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    outline: none;
   }
 
   .results-section {
@@ -819,10 +999,18 @@
     }
 
     .hero-actions {
-      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-actions-top {
+      grid-template-columns: 1fr;
     }
 
     .day-plan {
+      grid-template-columns: 1fr;
+    }
+
+    .utility-row {
       grid-template-columns: 1fr;
     }
 
@@ -875,9 +1063,19 @@
   </div>
 
   <div class="hero-actions">
-    <button class="spin-btn" onclick="spin()">Spin a random place &rarr;</button>
-    <button class="action-btn secondary-btn" id="plan-day-btn" type="button">Plan My Day</button>
-    <button class="action-btn secondary-btn" id="reset-btn" type="button">Reset Filters</button>
+    <div class="hero-actions-top">
+      <button class="action-btn secondary-btn hero-tool plan-btn" id="plan-day-btn" type="button">
+        <span class="hero-tool-badge">Quick Plan</span>
+        <span class="hero-tool-title">Plan My Day</span>
+        <span class="hero-tool-meta">Breakfast • activity • dinner</span>
+      </button>
+      <button class="action-btn secondary-btn hero-tool reset-btn" id="reset-btn" type="button">
+        <span class="hero-tool-badge">Start Fresh</span>
+        <span class="hero-tool-title">Reset Filters</span>
+        <span class="hero-tool-meta">Clear search, mood, and toggles</span>
+      </button>
+    </div>
+    <button class="spin-btn" onclick="spin()">Spin a random place &rarr;<span class="spin-btn-sub">Get a fresh pick from your current filters</span></button>
   </div>
   <div class="counter" id="counter"></div>
   <div class="saved-launchers">
@@ -948,6 +1146,24 @@
     <div class="budget-value" id="budget-value">₹5000+</div>
   </div>
   <input class="budget-range" id="budget-range" type="range" min="100" max="5000" step="100" value="5000">
+</div>
+
+<div class="utility-row">
+  <button class="toggle-tile" id="open-now-toggle" type="button">
+    <div class="toggle-check">Open Now</div>
+  </button>
+  <button class="toggle-tile" id="favorites-only-toggle" type="button">
+    <div class="toggle-check">Favorites Only</div>
+  </button>
+  <select class="sort-select" id="sort-select" aria-label="Sort results">
+    <option value="recommended">Sort: Recommended</option>
+    <option value="rating">Sort: Rating</option>
+    <option value="budget-low">Sort: Budget Low</option>
+    <option value="budget-high">Sort: Budget High</option>
+    <option value="area">Sort: Area</option>
+    <option value="open-late">Sort: Open Late</option>
+    <option value="distance">Sort: Nearest</option>
+  </select>
 </div>
 
 <div class="results-section">
@@ -2680,6 +2896,9 @@ let activeAudience = "Anyone";
 let activeDistance = "Any Distance";
 let activeBudget = MAX_BUDGET_DEFAULT;
 let activeMood = "Any Mood";
+let openNowOnly = false;
+let favoritesOnly = false;
+let activeSort = "recommended";
 let userCoords = null;
 let savedDrawerMode = "favorites";
 const seenPlacesByPool = new Map();
@@ -2707,6 +2926,9 @@ const resultsListEl = document.getElementById("results-list");
 const moodGridEl = document.getElementById("mood-grid");
 const favoritesListEl = document.getElementById("favorites-list");
 const historyListEl = document.getElementById("history-list");
+const openNowToggleEl = document.getElementById("open-now-toggle");
+const favoritesOnlyToggleEl = document.getElementById("favorites-only-toggle");
+const sortSelectEl = document.getElementById("sort-select");
 const favoritesToggleBtnEl = document.getElementById("favorites-toggle-btn");
 const recentToggleBtnEl = document.getElementById("recent-toggle-btn");
 const savedCloseBtnEl = document.getElementById("saved-close-btn");
@@ -2756,6 +2978,8 @@ const searchSynonyms = {
   dessert: ["dessert", "desserts", "ice cream", "gelato", "pastry", "cake", "sweet"],
   sweets: ["dessert", "desserts", "ice cream", "gelato", "pastry", "cake", "sweet"],
   nightlife: ["nightlife", "bar", "pub", "brewpub", "club", "lounge", "late night"],
+  late: ["late", "late night", "night", "open late", "midnight", "1 am", "2 am"],
+  night: ["night", "late night", "open late", "midnight", "1 am", "2 am"],
   date: ["couple", "date", "aesthetic", "rooftop", "dessert", "luxury"],
   family: ["family", "park", "museum", "botanical", "lake", "hotel"],
   work: ["work", "wifi", "coffee", "cafe", "solo"],
@@ -3104,6 +3328,158 @@ function buildIntentKeywords(place) {
   return [...tags].join(" ");
 }
 
+function inferTiming(place) {
+  const text = normalizeSearchText(`${place.name} ${place.desc} ${place.cat} ${place.type}`);
+
+  if (place.cat === "Hotels & Stays") {
+    return {
+      openingHours: "24 Hours",
+      timingNote: "Hotel front desk typically available through the day and night.",
+      openLate: true
+    };
+  }
+
+  if (/temple|church|mosque/.test(text)) {
+    return {
+      openingHours: "6:00 AM - 12:00 PM • 5:00 PM - 8:30 PM",
+      timingNote: "Temple and worship timings can shift on festival days.",
+      openLate: false
+    };
+  }
+
+  if (/museum|gallery|planetarium|experience|palace/.test(text) || place.cat === "Culture & Art") {
+    return {
+      openingHours: "10:00 AM - 6:00 PM",
+      timingNote: "Usually daytime hours. Many of these are closed on Mondays.",
+      openLate: false
+    };
+  }
+
+  if (place.cat === "Parks & Nature" || /park|lake|garden|forest|sunrise/.test(text)) {
+    return {
+      openingHours: "6:00 AM - 6:30 PM",
+      timingNote: "Best earlier in the day. Entry may close before sunset.",
+      openLate: false
+    };
+  }
+
+  if (place.cat === "Markets & Streets") {
+    return {
+      openingHours: "10:00 AM - 9:00 PM",
+      timingNote: "Street timings vary. Go earlier for shopping and later for food streets.",
+      openLate: /food street|ramzan|night/.test(text)
+    };
+  }
+
+  if (place.cat === "Activities") {
+    if (/kart|bowling|gaming|escape|laser|snow|trampoline/.test(text)) {
+      return {
+        openingHours: "11:00 AM - 10:00 PM",
+        timingNote: "Indoor activity spots usually stay open into the evening.",
+        openLate: true
+      };
+    }
+    return {
+      openingHours: "9:00 AM - 8:00 PM",
+      timingNote: "Timings can vary by slot and booking availability.",
+      openLate: false
+    };
+  }
+
+  if (/pub|bar|brew|brewpub|club|lounge|nightlife|resto bar|restobar|rooftop/.test(text)) {
+    return {
+      openingHours: "12:00 PM - 1:00 AM",
+      timingNote: "Late-night place. Weekend closing may run a bit later.",
+      openLate: true
+    };
+  }
+
+  if (/biryani|mandi|kebab|shawarma|fried chicken|military hotel/.test(text)) {
+    const lateOpen = /late|night|empire|shawarma|kebab|mandi|fried chicken/.test(text);
+    return {
+      openingHours: lateOpen ? "11:00 AM - 1:00 AM" : "11:00 AM - 11:30 PM",
+      timingNote: lateOpen ? "Good late-night food option." : "Dinner-heavy spot; timings may stretch later on weekends.",
+      openLate: lateOpen
+    };
+  }
+
+  if (/dessert|ice cream|gelato|pastry|cake|sweet|shake/.test(text)) {
+    return {
+      openingHours: "11:00 AM - 12:00 AM",
+      timingNote: "Dessert places usually run late into the evening.",
+      openLate: true
+    };
+  }
+
+  if (/coffee|cafe|roastery|bakery|breakfast|brunch|darshini|dosa/.test(text)) {
+    if (/breakfast|darshini|dosa|coffee bar|veena stores|brahmin|taaza thindi|slv/.test(text)) {
+      return {
+        openingHours: "7:00 AM - 11:30 AM",
+        timingNote: "Morning-first spot. Best to go early.",
+        openLate: false
+      };
+    }
+    return {
+      openingHours: "8:00 AM - 11:00 PM",
+      timingNote: "Cafe-style timings. Good for breakfast, work, and evening plans.",
+      openLate: false
+    };
+  }
+
+  return {
+    openingHours: "11:00 AM - 10:30 PM",
+    timingNote: "Estimated general timing. Best to verify before going.",
+    openLate: false
+  };
+}
+
+function parseTimeToMinutes(value) {
+  const match = value.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (!match) return null;
+  let hours = Number(match[1]) % 12;
+  const minutes = Number(match[2]);
+  const meridian = match[3].toUpperCase();
+  if (meridian === "PM") hours += 12;
+  return hours * 60 + minutes;
+}
+
+function isPlaceOpenNow(place, now = new Date()) {
+  if (place.openingHours === "24 Hours") return true;
+  const primaryWindow = place.openingHours.split("•")[0]?.trim();
+  if (!primaryWindow || !primaryWindow.includes("-")) return false;
+
+  const [openText, closeText] = primaryWindow.split("-").map(part => part.trim());
+  const openMins = parseTimeToMinutes(openText);
+  const closeMins = parseTimeToMinutes(closeText);
+  if (openMins === null || closeMins === null) return false;
+
+  const nowMins = now.getHours() * 60 + now.getMinutes();
+  if (closeMins < openMins) {
+    return nowMins >= openMins || nowMins <= closeMins;
+  }
+  return nowMins >= openMins && nowMins <= closeMins;
+}
+
+function sortPlaces(pool) {
+  const list = pool.slice();
+  if (activeSort === "rating") return list.sort((a, b) => Number(b.rating) - Number(a.rating));
+  if (activeSort === "budget-low") return list.sort((a, b) => a.maxBudget - b.maxBudget);
+  if (activeSort === "budget-high") return list.sort((a, b) => b.maxBudget - a.maxBudget);
+  if (activeSort === "area") return list.sort((a, b) => a.area.localeCompare(b.area) || a.name.localeCompare(b.name));
+  if (activeSort === "open-late") return list.sort((a, b) => Number(b.openLate) - Number(a.openLate) || Number(b.rating) - Number(a.rating));
+  if (activeSort === "distance") {
+    return list.sort((a, b) => {
+      const aDist = getDistanceKm(a);
+      const bDist = getDistanceKm(b);
+      if (aDist === null && bDist === null) return a.name.localeCompare(b.name);
+      if (aDist === null) return 1;
+      if (bDist === null) return -1;
+      return aDist - bDist;
+    });
+  }
+  return list.sort((a, b) => getSearchScore(b, activeSearch) - getSearchScore(a, activeSearch) || Number(b.rating) - Number(a.rating));
+}
+
 const places = dedupedRawPlaces.map(place => ({
   ...place,
   area: inferArea(place),
@@ -3113,13 +3489,15 @@ const places = dedupedRawPlaces.map(place => ({
   bestTimes: inferBestTime(place),
   audienceTags: inferAudience(place),
   maxBudget: parseBudgetMax(place.budget),
-  hoursNote: /museum|gallery|art|planetarium|experience|palace/i.test(`${place.name} ${place.desc} ${place.type}`) ? "Likely closed Monday" : "Best to check timings before going",
+  ...inferTiming(place),
+  hoursNote: "",
   coords: null
 })).map(place => ({
   ...place,
+  hoursNote: `${place.openingHours} • ${/museum|gallery|art|planetarium|experience|palace/i.test(`${place.name} ${place.desc} ${place.type}`) ? "Likely closed Monday. " : ""}${place.timingNote}`,
   coords: inferCoords(place, place.area),
-  searchText: normalizeSearchText(`${place.name} ${place.dist} ${place.area} ${place.cat} ${place.type} ${place.desc} ${buildIntentKeywords(place)} ${place.bestTimes.join(" ")} ${place.audienceTags.join(" ")}`),
-  intentText: normalizeSearchText(`${place.name} ${place.dist} ${place.area} ${place.cat} ${place.type} ${place.desc} ${buildIntentKeywords(place)} ${place.bestTimes.join(" ")} ${place.audienceTags.join(" ")}`)
+  searchText: normalizeSearchText(`${place.name} ${place.dist} ${place.area} ${place.cat} ${place.type} ${place.desc} ${buildIntentKeywords(place)} ${place.bestTimes.join(" ")} ${place.audienceTags.join(" ")} ${place.openingHours} ${place.timingNote} ${place.openLate ? "open late late night" : ""}`),
+  intentText: normalizeSearchText(`${place.name} ${place.dist} ${place.area} ${place.cat} ${place.type} ${place.desc} ${buildIntentKeywords(place)} ${place.bestTimes.join(" ")} ${place.audienceTags.join(" ")} ${place.openingHours} ${place.timingNote} ${place.openLate ? "open late late night" : ""}`)
 }));
 
 const sortedAreas = ["All Areas", ...new Set(
@@ -3351,6 +3729,9 @@ function applyMood({
 
 function rerenderFilters() {
   renderMoodButtons();
+  openNowToggleEl.classList.toggle("active", openNowOnly);
+  favoritesOnlyToggleEl.classList.toggle("active", favoritesOnly);
+  sortSelectEl.value = activeSort;
   renderFilterGroup(filtersEl, cats, activeFilter, option => {
     activeFilter = option;
     activeMood = "Any Mood";
@@ -3381,13 +3762,15 @@ function rerenderFilters() {
 }
 
 function getFilteredPlaces() {
-  return places.filter(place => {
+  const filtered = places.filter(place => {
     const categoryMatch = activeFilter === "All" || place.cat === activeFilter;
     const areaMatch = activeArea === "All Areas" || place.area === activeArea;
     const searchMatch = !activeSearch || matchesSearchQuery(place, activeSearch);
     const timeMatch = activeTime === "Any Time" || place.bestTimes.includes(activeTime);
     const audienceMatch = activeAudience === "Anyone" || place.audienceTags.includes(activeAudience);
     const budgetMatch = place.maxBudget <= activeBudget;
+    const openNowMatch = !openNowOnly || isPlaceOpenNow(place);
+    const favoritesMatch = !favoritesOnly || isFavorite(place.name);
 
     let distanceMatch = true;
     if (activeDistance !== "Any Distance") {
@@ -3405,8 +3788,10 @@ function getFilteredPlaces() {
       }
     }
 
-    return categoryMatch && areaMatch && searchMatch && timeMatch && audienceMatch && budgetMatch && distanceMatch;
+    return categoryMatch && areaMatch && searchMatch && timeMatch && audienceMatch && budgetMatch && distanceMatch && openNowMatch && favoritesMatch;
   });
+
+  return sortPlaces(filtered);
 }
 
 function getSearchScore(place, query) {
@@ -3416,6 +3801,9 @@ function getSearchScore(place, query) {
 
   const tokens = tokenizeSearchQuery(normalizedQuery);
   if (!tokens.length) return place.intentText.includes(normalizedQuery) ? 20 : 0;
+
+  const lateNightIntent = tokens.some(token => ["late", "night", "nightlife", "midnight"].includes(token)) || normalizedQuery.includes("open late");
+  if (lateNightIntent && !place.openLate) return 0;
 
   let matchedTokens = 0;
   let score = 0;
@@ -3469,6 +3857,7 @@ function renderResultsList(pool) {
         </div>
       </div>
       <div class="result-desc">${place.desc}</div>
+      <div class="saved-meta">Hours • ${place.openingHours}${place.openLate ? " • Open late" : ""}</div>
       <div class="card-pills">
         <span class="pill pill-dist">${place.dist}</span>
         <span class="pill pill-budget">${place.budget}</span>
@@ -3543,6 +3932,7 @@ function renderPlace(place) {
     `<span class="pill pill-type">${place.type}</span>` +
     `<span class="pill pill-area">${place.area}</span>` +
     `<span class="pill pill-rating">${place.rating} ★</span>` +
+    `<span class="pill pill-type">${place.openingHours}</span>` +
     (place.bestTimes[0] ? `<span class="pill pill-type">${place.bestTimes[0]}</span>` : "");
   document.getElementById("c-note").textContent = place.hoursNote;
   document.getElementById("c-audience").innerHTML = place.audienceTags
@@ -3828,6 +4218,9 @@ function resetFilters(options = {}) {
   activeDistance = "Any Distance";
   activeBudget = MAX_BUDGET_DEFAULT;
   activeMood = "Any Mood";
+  openNowOnly = false;
+  favoritesOnly = false;
+  activeSort = "recommended";
   activeSearch = "";
   setSearchInputsValue("");
   budgetRangeEl.value = String(MAX_BUDGET_DEFAULT);
@@ -3955,6 +4348,23 @@ areaSelectEl.addEventListener("change", event => {
 budgetRangeEl.addEventListener("input", event => {
   activeBudget = Number(event.target.value);
   activeMood = "Any Mood";
+  updateCounter();
+});
+
+openNowToggleEl.addEventListener("click", () => {
+  openNowOnly = !openNowOnly;
+  activeMood = "Any Mood";
+  updateCounter();
+});
+
+favoritesOnlyToggleEl.addEventListener("click", () => {
+  favoritesOnly = !favoritesOnly;
+  activeMood = "Any Mood";
+  updateCounter();
+});
+
+sortSelectEl.addEventListener("change", event => {
+  activeSort = event.target.value;
   updateCounter();
 });
 
