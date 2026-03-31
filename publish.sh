@@ -10,6 +10,7 @@ echo "Publishing Bangalore Picker..."
 
 mkdir -p "$DELIVERY_DIR"
 
+cp "$OTHERS_DIR/bangalore_random_picker.html" "$ROOT/index.html"
 cp "$OTHERS_DIR/bangalore_random_picker.html" "$OTHERS_DIR/index.html"
 cp "$OTHERS_DIR/bangalore_random_picker.html" "$DELIVERY_DIR/bangalore_random_picker.html"
 cp "$OTHERS_DIR/bangalore_random_picker.html" "$DELIVERY_DIR/index.html"

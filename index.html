@@ -9,12 +9,14 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bangalore Picker">
 <meta property="og:description" content="Find cafes, rooftops, hidden gems, food spots, and weekend plans across Bengaluru.">
-<meta property="og:image" content="social-preview.svg">
+<meta property="og:url" content="https://aryanswaroopportfolio.vercel.app/">
+<meta property="og:image" content="https://aryanswaroopportfolio.vercel.app/social-preview.svg">
 <meta property="og:image:alt" content="Bangalore Picker preview card">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Bangalore Picker">
 <meta name="twitter:description" content="Find cafes, rooftops, hidden gems, food spots, and weekend plans across Bengaluru.">
-<meta name="twitter:image" content="social-preview.svg">
+<meta name="twitter:image" content="https://aryanswaroopportfolio.vercel.app/social-preview.svg">
+<link rel="canonical" href="https://aryanswaroopportfolio.vercel.app/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
@@ -128,9 +130,15 @@
   }
 
   .hero-actions {
-    display: flex;
+    display: grid;
+    gap: 12px;
+    margin-top: 0.35rem;
+  }
+
+  .hero-actions-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
-    flex-wrap: wrap;
   }
 
   .search-box {
@@ -407,24 +415,151 @@
     background: #1f1f1f;
   }
 
+  .hero-tool {
+    width: 100%;
+    min-height: 54px;
+    border-radius: 10px;
+    padding: 0.85rem 0.95rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.22rem;
+    transition: transform 0.14s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-tool:active {
+    transform: translateY(1px);
+  }
+
+  .hero-tool::after {
+    content: "";
+    position: absolute;
+    inset: auto -18px -26px auto;
+    width: 72px;
+    height: 72px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+
+  .hero-tool-badge {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-bottom: 0.28rem;
+    padding: 0.18rem 0.42rem;
+    border-radius: 999px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #d8d8d8;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .hero-tool-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .hero-tool-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-tool.plan-btn {
+    background:
+      radial-gradient(circle at top right, rgba(232,255,77,0.22), transparent 45%),
+      linear-gradient(135deg, rgba(232,255,77,0.14) 0%, rgba(232,255,77,0.04) 100%);
+    border-color: rgba(232,255,77,0.42);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(232,255,77,0.08);
+    min-height: 44px;
+    padding: 0.76rem 0.9rem;
+  }
+
+  .hero-tool.plan-btn:hover {
+    background: linear-gradient(135deg, rgba(232,255,77,0.22) 0%, rgba(232,255,77,0.08) 100%);
+    border-color: rgba(232,255,77,0.55);
+  }
+
+  .hero-tool.plan-btn .hero-tool-title {
+    color: var(--accent);
+  }
+
+  .hero-tool.plan-btn .hero-tool-badge {
+    color: #f2ff99;
+    border-color: rgba(232,255,77,0.22);
+    background: rgba(232,255,77,0.08);
+  }
+
+  .hero-tool.reset-btn {
+    background:
+      radial-gradient(circle at top right, rgba(255,140,140,0.22), transparent 48%),
+      linear-gradient(135deg, rgba(255,132,132,0.2) 0%, rgba(255,98,98,0.08) 100%);
+    border-color: rgba(255,120,120,0.62);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,120,120,0.12);
+  }
+
+  .hero-tool.reset-btn:hover {
+    background: linear-gradient(135deg, rgba(255,132,132,0.24) 0%, rgba(255,98,98,0.12) 100%);
+    border-color: rgba(255,120,120,0.75);
+  }
+
+  .hero-tool.reset-btn .hero-tool-title {
+    color: #ffb4b4;
+  }
+
+  .hero-tool.reset-btn .hero-tool-meta {
+    color: #d6a3a3;
+  }
+
+  .hero-tool.reset-btn .hero-tool-badge {
+    color: #ffd1d1;
+    border-color: rgba(255,170,170,0.24);
+    background: rgba(255,170,170,0.08);
+  }
+
   .spin-btn {
     width: 100%;
-    padding: 1.1rem 2rem;
-    background: var(--accent);
+    padding: 1.15rem 1.25rem;
+    background: linear-gradient(135deg, #e8ff4d 0%, #d9f13f 100%);
     color: #0e0e0e;
     font-family: 'Syne', sans-serif;
-    font-size: 1rem;
+    font-size: 1.02rem;
     font-weight: 800;
     letter-spacing: 0.04em;
     border: none;
-    border-radius: 2px;
+    border-radius: 12px;
     cursor: pointer;
     text-transform: uppercase;
-    transition: background 0.15s, transform 0.1s;
+    transition: background 0.15s, transform 0.1s, box-shadow 0.18s ease;
+    box-shadow: 0 18px 40px rgba(216,241,63,0.18);
   }
 
-  .spin-btn:hover { background: #d4eb3a; }
+  .spin-btn:hover {
+    background: linear-gradient(135deg, #eeff79 0%, #dff34b 100%);
+    box-shadow: 0 22px 44px rgba(216,241,63,0.22);
+  }
   .spin-btn:active { transform: scale(0.98); }
+
+  .spin-btn-sub {
+    display: block;
+    margin-top: 0.3rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: rgba(14,14,14,0.7);
+  }
 
   .counter {
     font-family: 'Space Mono', monospace;
@@ -439,6 +574,53 @@
     width: 100%;
     max-width: 700px;
     margin-bottom: 1rem;
+  }
+
+  .utility-row {
+    width: 100%;
+    max-width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .toggle-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.9rem;
+    cursor: pointer;
+  }
+
+  .toggle-tile.active {
+    border-color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--accent);
+  }
+
+  .toggle-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .sort-select {
+    width: 100%;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.95rem 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    outline: none;
   }
 
   .results-section {
@@ -819,10 +1001,18 @@
     }
 
     .hero-actions {
-      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-actions-top {
+      grid-template-columns: 1fr;
     }
 
     .day-plan {
+      grid-template-columns: 1fr;
+    }
+
+    .utility-row {
       grid-template-columns: 1fr;
     }
 
@@ -875,9 +1065,19 @@
   </div>
 
   <div class="hero-actions">
-    <button class="spin-btn" onclick="spin()">Spin a random place &rarr;</button>
-    <button class="action-btn secondary-btn" id="plan-day-btn" type="button">Plan My Day</button>
-    <button class="action-btn secondary-btn" id="reset-btn" type="button">Reset Filters</button>
+    <div class="hero-actions-top">
+      <button class="action-btn secondary-btn hero-tool plan-btn" id="plan-day-btn" type="button">
+        <span class="hero-tool-badge">Quick Plan</span>
+        <span class="hero-tool-title">Plan My Day</span>
+        <span class="hero-tool-meta">Breakfast • activity • dinner</span>
+      </button>
+      <button class="action-btn secondary-btn hero-tool reset-btn" id="reset-btn" type="button">
+        <span class="hero-tool-badge">Start Fresh</span>
+        <span class="hero-tool-title">Reset Filters</span>
+        <span class="hero-tool-meta">Clear search, mood, and toggles</span>
+      </button>
+    </div>
+    <button class="spin-btn" onclick="spin()">Spin a random place &rarr;<span class="spin-btn-sub">Get a fresh pick from your current filters</span></button>
   </div>
   <div class="counter" id="counter"></div>
   <div class="saved-launchers">
@@ -950,6 +1150,24 @@
   <input class="budget-range" id="budget-range" type="range" min="100" max="5000" step="100" value="5000">
 </div>
 
+<div class="utility-row">
+  <button class="toggle-tile" id="open-now-toggle" type="button">
+    <div class="toggle-check">Open Now</div>
+  </button>
+  <button class="toggle-tile" id="favorites-only-toggle" type="button">
+    <div class="toggle-check">Favorites Only</div>
+  </button>
+  <select class="sort-select" id="sort-select" aria-label="Sort results">
+    <option value="recommended">Sort: Recommended</option>
+    <option value="rating">Sort: Rating</option>
+    <option value="budget-low">Sort: Budget Low</option>
+    <option value="budget-high">Sort: Budget High</option>
+    <option value="area">Sort: Area</option>
+    <option value="open-late">Sort: Open Late</option>
+    <option value="distance">Sort: Nearest</option>
+  </select>
+</div>
+
 <div class="results-section">
   <div class="filter-label">Search Results</div>
   <div class="search-wrap">
@@ -962,1087 +1180,12 @@
   <div class="results-list" id="results-list"></div>
 </div>
 
-<script>
-window.EXTRA_PLACES = [
-  {
-    name: "Dialogues Cafe",
-    cat: "Food & Cafes",
-    desc: "Pay-per-hour productivity cafe with books, games, and work-friendly seating.",
-    budget: "₹200-500",
-    dist: "Koramangala",
-    type: "Work"
-  },
-  {
-    name: "Skyye",
-    cat: "Food & Cafes",
-    desc: "Rooftop nightlife destination with a luxury Bangalore city view.",
-    budget: "₹2000-4000",
-    dist: "UB City",
-    type: "Luxury"
-  },
-  {
-    name: "Byg Brewski",
-    cat: "Food & Cafes",
-    desc: "Massive brewery-style nightlife venue popular for big party evenings.",
-    budget: "₹1500-3000",
-    dist: "Hennur",
-    type: "Party"
-  },
-  {
-    name: "Social",
-    cat: "Food & Cafes",
-    desc: "Youth hangout for drinks, food, and a casual nightlife crowd.",
-    budget: "₹1000-2000",
-    dist: "Indiranagar",
-    type: "Chill"
-  },
-  {
-    name: "Prost Brewpub",
-    cat: "Food & Cafes",
-    desc: "Rooftop brewery spot with upbeat Bangalore party energy.",
-    budget: "₹1500-2500",
-    dist: "Koramangala",
-    type: "Party"
-  },
-  {
-    name: "High Ultra Lounge",
-    cat: "Food & Cafes",
-    desc: "High-rise luxury bar and lounge experience in Whitefield.",
-    budget: "₹2500-5000",
-    dist: "Whitefield",
-    type: "Luxury"
-  },
-  {
-    name: "The 13th Floor",
-    cat: "Food & Cafes",
-    desc: "Rooftop bar with sweeping city views and a calmer nightlife vibe.",
-    budget: "₹1500-3000",
-    dist: "MG Road",
-    type: "Chill"
-  },
-  {
-    name: "Windmills Craftworks",
-    cat: "Food & Cafes",
-    desc: "Premium jazz-and-brewery venue known for music and craft beer.",
-    budget: "₹2000-4000",
-    dist: "Whitefield",
-    type: "Premium"
-  },
-  {
-    name: "Orion Mall",
-    cat: "Markets & Streets",
-    desc: "Premium mall destination with shopping, dining, and lakefront access nearby.",
-    budget: "₹1000+",
-    dist: "Rajajinagar",
-    type: "Luxury"
-  },
-  {
-    name: "UB City Mall",
-    cat: "Markets & Streets",
-    desc: "Ultra luxury shopping destination with premium brands and restaurants.",
-    budget: "₹3000+",
-    dist: "Central Bangalore",
-    type: "Luxury"
-  },
-  {
-    name: "Forum Mall",
-    cat: "Markets & Streets",
-    desc: "Popular mall destination for shopping, movies, and casual dining.",
-    budget: "₹1000+",
-    dist: "Koramangala",
-    type: "Casual"
-  },
-  {
-    name: "Garuda Mall",
-    cat: "Markets & Streets",
-    desc: "Central Bangalore mall with shopping, cinema, and easy city access.",
-    budget: "₹1000+",
-    dist: "Magrath Road",
-    type: "Casual"
-  },
-  {
-    name: "Jayanagar 4th Block",
-    cat: "Markets & Streets",
-    desc: "Street shopping and local stores with an easy neighbourhood vibe.",
-    budget: "₹300-1500",
-    dist: "Jayanagar",
-    type: "Budget"
-  },
-  {
-    name: "Esteem Mall",
-    cat: "Markets & Streets",
-    desc: "Local mall option for simple shopping and casual hangouts.",
-    budget: "₹500-1500",
-    dist: "Hebbal",
-    type: "Casual"
-  },
-  {
-    name: "SkyJumper Trampoline Park",
-    cat: "Activities",
-    desc: "Indoor trampoline and jump-based activity zone for groups and families.",
-    budget: "₹500-1000",
-    dist: "Whitefield",
-    type: "Fun"
-  },
-  {
-    name: "Grips Go Karting",
-    cat: "Activities",
-    desc: "Go-kart racing stop for fast-paced outdoor fun.",
-    budget: "₹800-1500",
-    dist: "Electronic City",
-    type: "Adventure"
-  },
-  {
-    name: "Laser Castle",
-    cat: "Activities",
-    desc: "Laser tag activity for groups who want a quick competitive outing.",
-    budget: "₹400-800",
-    dist: "Koramangala",
-    type: "Group"
-  },
-  {
-    name: "VR Bengaluru Gaming",
-    cat: "Activities",
-    desc: "VR-led gaming outing for techy, indoor fun sessions.",
-    budget: "₹500-1200",
-    dist: "Whitefield",
-    type: "Tech"
-  },
-  {
-    name: "Fun World",
-    cat: "Activities",
-    desc: "Classic amusement park choice for louder family and group days.",
-    budget: "₹800-1500",
-    dist: "Palace Grounds",
-    type: "Family"
-  },
-  {
-    name: "Snow City",
-    cat: "Activities",
-    desc: "Indoor snow park for novelty fun right in the city.",
-    budget: "₹600-1200",
-    dist: "Palace Grounds",
-    type: "Fun"
-  },
-  {
-    name: "Bangalore Palace",
-    cat: "Heritage & Temples",
-    desc: "Royal architecture landmark and one of Bangalore's best-known heritage visits.",
-    budget: "₹300",
-    dist: "Vasanth Nagar",
-    type: "Heritage"
-  },
-  {
-    name: "Jawaharlal Nehru Planetarium",
-    cat: "Culture & Art",
-    desc: "Space and astronomy experience with regular educational shows.",
-    budget: "₹75",
-    dist: "High Grounds",
-    type: "Learning"
-  },
-  {
-    name: "HAL Aerospace Museum",
-    cat: "Culture & Art",
-    desc: "Aviation museum experience with aircraft history and technical exhibits.",
-    budget: "₹50",
-    dist: "HAL",
-    type: "Learning"
-  },
-  {
-    name: "The Leela Palace Bengaluru",
-    cat: "Hotels & Stays",
-    desc: "Flagship luxury hotel known for palatial design, lush grounds, and landmark dining.",
-    budget: "₹18,000+",
-    dist: "Old Airport Road",
-    type: "Luxury Stay"
-  },
-  {
-    name: "Taj West End Bengaluru",
-    cat: "Hotels & Stays",
-    desc: "Historic luxury hotel set in a large garden estate near the city's core.",
-    budget: "₹16,000+",
-    dist: "Race Course Road",
-    type: "Heritage Stay"
-  },
-  {
-    name: "The Oberoi Bengaluru",
-    cat: "Hotels & Stays",
-    desc: "Central luxury hotel on MG Road known for gardens, comfort, and business access.",
-    budget: "₹14,000+",
-    dist: "MG Road",
-    type: "Luxury Stay"
-  },
-  {
-    name: "JW Marriott Hotel Bengaluru",
-    cat: "Hotels & Stays",
-    desc: "Five-star central hotel near Cubbon Park with multiple restaurants and polished stay experience.",
-    budget: "₹14,000+",
-    dist: "Central Bangalore",
-    type: "Luxury Stay"
-  },
-  {
-    name: "Hyatt Centric MG Road Bangalore",
-    cat: "Hotels & Stays",
-    desc: "Modern upscale hotel positioned between MG Road and Ulsoor Lake.",
-    budget: "₹10,000+",
-    dist: "MG Road",
-    type: "Upscale Stay"
-  },
-  {
-    name: "Shangri-La Bengaluru",
-    cat: "Hotels & Stays",
-    desc: "Skyline-view luxury hotel known for high-rise rooms and strong dining options.",
-    budget: "₹14,000+",
-    dist: "Palace Road",
-    type: "Luxury Stay"
-  },
-  {
-    name: "Conrad Bengaluru",
-    cat: "Hotels & Stays",
-    desc: "Premium hotel overlooking Ulsoor Lake with a polished central-city feel.",
-    budget: "₹13,000+",
-    dist: "Ulsoor",
-    type: "Luxury Stay"
-  },
-  {
-    name: "The Ritz-Carlton, Bangalore",
-    cat: "Hotels & Stays",
-    desc: "Luxury city stay known for refined service and a prime Residency Road location.",
-    budget: "₹16,000+",
-    dist: "Residency Road",
-    type: "Luxury Stay"
-  },
-  {
-    name: "ITC Gardenia",
-    cat: "Hotels & Stays",
-    desc: "Large luxury hotel with strong dining and business-travel appeal in central Bangalore.",
-    budget: "₹14,000+",
-    dist: "Residency Road",
-    type: "Luxury Stay"
-  },
-  {
-    name: "Sheraton Grand Bangalore Hotel at Brigade Gateway",
-    cat: "Hotels & Stays",
-    desc: "Premium stay linked to the Brigade Gateway zone and close to Orion Mall.",
-    budget: "₹12,000+",
-    dist: "Rajajinagar",
-    type: "Premium Stay"
-  },
-  {
-    name: "Paper & Pie",
-    cat: "Food & Cafes",
-    desc: "Work-friendly cafe built for long coffee sessions, laptop time, and polished comfort.",
-    budget: "₹300-800",
-    dist: "Central Bangalore",
-    type: "Work"
-  },
-  {
-    name: "Maverick & Farmer Coffee",
-    cat: "Food & Cafes",
-    desc: "Specialty coffee-led cafe with strong brunch energy and multiple Bangalore locations.",
-    budget: "₹350-900",
-    dist: "Ulsoor",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Champaca Bookstore, Library and Cafe",
-    cat: "Culture & Art",
-    desc: "Independent Bengaluru bookstore space that pairs reading culture with a cafe setting.",
-    budget: "₹200-500",
-    dist: "Vasanth Nagar",
-    type: "Book Cafe"
-  },
-  {
-    name: "DYU Art Cafe",
-    cat: "Food & Cafes",
-    desc: "Aesthetic courtyard cafe with a calm, design-forward Bangalore vibe.",
-    budget: "₹400-900",
-    dist: "Koramangala",
-    type: "Aesthetic"
-  },
-  {
-    name: "The Hole in the Wall Cafe",
-    cat: "Food & Cafes",
-    desc: "Legendary breakfast cafe known for hearty plates and long-time local popularity.",
-    budget: "₹300-600",
-    dist: "Koramangala",
-    type: "Food"
-  },
-  {
-    name: "Rameshwaram Cafe",
-    cat: "Food & Cafes",
-    desc: "Popular dosa and filter coffee destination with strong Bengaluru buzz.",
-    budget: "₹150-300",
-    dist: "Indiranagar",
-    type: "Food"
-  },
-  {
-    name: "Lazy Suzy",
-    cat: "Food & Cafes",
-    desc: "Brunch-led cafe with specialty coffee and a polished all-day feel.",
-    budget: "₹400-800",
-    dist: "Indiranagar",
-    type: "Aesthetic"
-  },
-  {
-    name: "Bloom & Brew",
-    cat: "Food & Cafes",
-    desc: "Instagram-friendly cafe with bright interiors and easy coffee-date energy.",
-    budget: "₹300-700",
-    dist: "Koramangala",
-    type: "Aesthetic"
-  },
-  {
-    name: "The Kind Roastery & Brewroom",
-    cat: "Food & Cafes",
-    desc: "Premium coffee roastery with a work-friendly and polished Bangalore cafe vibe.",
-    budget: "₹300-800",
-    dist: "Whitefield",
-    type: "Work"
-  },
-  {
-    name: "Urban Solace",
-    cat: "Food & Cafes",
-    desc: "Artful cafe with a softer chill vibe and a strong Bengaluru following.",
-    budget: "₹400-800",
-    dist: "Ulsoor",
-    type: "Chill"
-  },
-  {
-    name: "Little Green Cafe",
-    cat: "Food & Cafes",
-    desc: "Healthy vegan-friendly cafe for lighter meals and coffee breaks.",
-    budget: "₹300-700",
-    dist: "Indiranagar",
-    type: "Healthy"
-  },
-  {
-    name: "Cafe Down The Alley",
-    cat: "Hidden Gems",
-    desc: "A hidden aesthetic cafe tucked into a quieter lane for slower hangouts.",
-    budget: "₹300-700",
-    dist: "Indiranagar",
-    type: "Aesthetic"
-  },
-  {
-    name: "Karavalli",
-    cat: "Food & Cafes",
-    desc: "Celebrated coastal fine-dining restaurant with a strong Bangalore legacy.",
-    budget: "₹1500+",
-    dist: "Residency Road",
-    type: "Luxury"
-  },
-  {
-    name: "Oota Bangalore",
-    cat: "Food & Cafes",
-    desc: "Authentic Karnataka cuisine in a polished but grounded dining setting.",
-    budget: "₹300-700",
-    dist: "Indiranagar",
-    type: "Food"
-  },
-  {
-    name: "Sattvam",
-    cat: "Food & Cafes",
-    desc: "Premium vegetarian buffet restaurant with a more serene, upscale feel.",
-    budget: "₹800-1500",
-    dist: "Sadashivanagar",
-    type: "Premium"
-  },
-  {
-    name: "Plan B",
-    cat: "Food & Cafes",
-    desc: "Casual American-style dining known for comfort food and group-friendly energy.",
-    budget: "₹400-800",
-    dist: "Indiranagar",
-    type: "Casual"
-  },
-  {
-    name: "Smoke House Deli",
-    cat: "Food & Cafes",
-    desc: "European cafe-deli style dining with a brighter, aesthetic atmosphere.",
-    budget: "₹800-1500",
-    dist: "Indiranagar",
-    type: "Aesthetic"
-  },
-  {
-    name: "Chianti",
-    cat: "Food & Cafes",
-    desc: "Italian dining spot with a polished, premium comfort-food feel.",
-    budget: "₹800-1500",
-    dist: "Indiranagar",
-    type: "Premium"
-  },
-  {
-    name: "Toscano",
-    cat: "Food & Cafes",
-    desc: "Italian fine-dining style restaurant in one of Bangalore's premium zones.",
-    budget: "₹1000-2000",
-    dist: "UB City",
-    type: "Premium"
-  },
-  {
-    name: "Punjab Grill",
-    cat: "Food & Cafes",
-    desc: "Luxury North Indian dining with a richer, occasion-style experience.",
-    budget: "₹1500+",
-    dist: "UB City",
-    type: "Luxury"
-  },
-  {
-    name: "Big Pitcher",
-    cat: "Food & Cafes",
-    desc: "Huge brewery-style venue with strong Bangalore nightlife and live-music energy.",
-    budget: "₹1500-3000",
-    dist: "Old Airport Road",
-    type: "Party"
-  },
-  {
-    name: "Gilly's Restobar",
-    cat: "Food & Cafes",
-    desc: "Dance-and-pub nightlife destination with a younger Bangalore crowd.",
-    budget: "₹1000-2000",
-    dist: "Koramangala",
-    type: "Youth"
-  },
-  {
-    name: "House of Commons",
-    cat: "Food & Cafes",
-    desc: "Chill pub-style stop for drinks, food, and an easy evening plan.",
-    budget: "₹1200-2000",
-    dist: "Indiranagar",
-    type: "Chill"
-  },
-  {
-    name: "The Boozy Griffin",
-    cat: "Food & Cafes",
-    desc: "Party-focused pub pick for louder nights in the city.",
-    budget: "₹1200-2500",
-    dist: "Indiranagar",
-    type: "Party"
-  },
-  {
-    name: "Benki Coffee",
-    cat: "Food & Cafes",
-    desc: "Specialty coffee cafe in Jayanagar with a strong craft-coffee focus.",
-    budget: "₹250-500",
-    dist: "Jayanagar",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Beanlore Coffee Roasters",
-    cat: "Food & Cafes",
-    desc: "Specialty coffee cafe known for work-friendly seating and polished brews.",
-    budget: "₹350-900",
-    dist: "Whitefield",
-    type: "Work"
-  },
-  {
-    name: "Infinitea Tea Room & Tea Store",
-    cat: "Food & Cafes",
-    desc: "Tea-focused Bengaluru cafe for calmer sit-down conversations and light meals.",
-    budget: "₹400-900",
-    dist: "Cunningham Road",
-    type: "Chill"
-  },
-  {
-    name: "Raj Dhum Biriyani",
-    cat: "Food & Cafes",
-    desc: "One of the better-known Hoskote-side biryani joints for spicy mutton and chicken biryani.",
-    budget: "₹200-450",
-    dist: "Hoskote",
-    type: "Biryani"
-  },
-  {
-    name: "SK Mutton Biryani",
-    cat: "Food & Cafes",
-    desc: "Popular Hoskote biryani stop known especially for mutton-heavy plates.",
-    budget: "₹250-500",
-    dist: "Hoskote",
-    type: "Biryani"
-  },
-  {
-    name: "Hot Pot Biryani Co.",
-    cat: "Food & Cafes",
-    desc: "Hoskote-style biryani destination with a more commercial chain-style presentation.",
-    budget: "₹250-550",
-    dist: "Hoskote",
-    type: "Biryani"
-  },
-  {
-    name: "Itz About Biryani",
-    cat: "Food & Cafes",
-    desc: "Known in the Hoskote belt for rich biryani plates and quick service crowds.",
-    budget: "₹220-500",
-    dist: "Hoskote",
-    type: "Biryani"
-  },
-  {
-    name: "Hoskote Biryani House",
-    cat: "Food & Cafes",
-    desc: "Straightforward Hoskote biryani joint for no-frills heavy biryani servings.",
-    budget: "₹200-450",
-    dist: "Hoskote",
-    type: "Biryani"
-  },
-  {
-    name: "Hoskote Handi Biryani",
-    cat: "Food & Cafes",
-    desc: "Handi-style biryani option tied to the Hoskote biryani circuit.",
-    budget: "₹250-500",
-    dist: "Hoskote",
-    type: "Biryani"
-  },
-  {
-    name: "Hoskote Donne Biryani",
-    cat: "Food & Cafes",
-    desc: "Biryani stop reflecting the Hoskote-side demand for rich spicy meat plates.",
-    budget: "₹200-450",
-    dist: "Hoskote",
-    type: "Biryani"
-  },
-  {
-    name: "Lavonne Cafe - Domlur",
-    cat: "Food & Cafes",
-    desc: "Lavonne's Domlur cafe and patisserie with breakfast, pastry, and coffee service.",
-    budget: "₹400-1100",
-    dist: "Domlur",
-    type: "Bakery Cafe"
-  },
-  {
-    name: "Lavonne Cafe - St. Mark's Road",
-    cat: "Food & Cafes",
-    desc: "Central Lavonne outpost on St. Mark's Road known for pastries, desserts, and coffee.",
-    budget: "₹400-1100",
-    dist: "St. Mark's Road",
-    type: "Bakery Cafe"
-  },
-  {
-    name: "Lavonne Cafe - Whitefield",
-    cat: "Food & Cafes",
-    desc: "Lavonne's Whitefield cafe inside Forum Shantiniketan with desserts, coffee, and bakes.",
-    budget: "₹400-1100",
-    dist: "Whitefield",
-    type: "Bakery Cafe"
-  },
-  {
-    name: "Lavonne Cafe - Bellandur",
-    cat: "Food & Cafes",
-    desc: "Lavonne's Bellandur cafe at RMZ Ecoworld for pastries, coffee, and a polished cafe stop.",
-    budget: "₹400-1100",
-    dist: "Bellandur",
-    type: "Bakery Cafe"
-  },
-  {
-    name: "Maverick & Farmer - Ulsoor",
-    cat: "Food & Cafes",
-    desc: "Specialty coffee cafe from Maverick & Farmer in Ulsoor.",
-    budget: "₹350-900",
-    dist: "Ulsoor",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Maverick & Farmer - Koramangala",
-    cat: "Food & Cafes",
-    desc: "Maverick & Farmer's Koramangala cafe built around specialty brews and a work-friendly setup.",
-    budget: "₹350-900",
-    dist: "Koramangala",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Blue Tokai Coffee Roasters - Domlur",
-    cat: "Food & Cafes",
-    desc: "Official Blue Tokai cafe in the Indiranagar-Domlur belt with wifi and long operating hours.",
-    budget: "₹300-800",
-    dist: "Domlur",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Blue Tokai Coffee Roasters - HSR Layout",
-    cat: "Food & Cafes",
-    desc: "Blue Tokai's HSR Layout cafe for coffee, light food, and work sessions.",
-    budget: "₹300-800",
-    dist: "HSR Layout",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Blue Tokai Coffee Roasters - JP Nagar",
-    cat: "Food & Cafes",
-    desc: "Blue Tokai store near the JP Nagar and Jayanagar side with all-day coffee service.",
-    budget: "₹300-800",
-    dist: "JP Nagar",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Blue Tokai Coffee Roasters - HRBR Layout",
-    cat: "Food & Cafes",
-    desc: "Blue Tokai's HRBR Layout cafe adding a specialty coffee stop to the Kalyan Nagar side.",
-    budget: "₹300-800",
-    dist: "HRBR Layout",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Blue Tokai Coffee Roasters - Whitefield",
-    cat: "Food & Cafes",
-    desc: "Official Blue Tokai branch in Whitefield-Mahadevapura inside VR Bengaluru.",
-    budget: "₹300-800",
-    dist: "Whitefield",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Blue Tokai Coffee Roasters - Brookefield",
-    cat: "Food & Cafes",
-    desc: "Blue Tokai's Brookefield location inside Divyashree Republic of Whitefield.",
-    budget: "₹300-800",
-    dist: "Brookefield",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Third Wave Coffee - Harlur",
-    cat: "Food & Cafes",
-    desc: "Third Wave's Harlur cafe on Haralur Main Road for late-opening coffee and quick food.",
-    budget: "₹250-700",
-    dist: "Harlur",
-    type: "Work"
-  },
-  {
-    name: "Third Wave Coffee - HRBR Layout",
-    cat: "Food & Cafes",
-    desc: "Third Wave outlet on CMR Main Road serving the HRBR Layout and Kalyan Nagar crowd.",
-    budget: "₹250-700",
-    dist: "HRBR Layout",
-    type: "Work"
-  },
-  {
-    name: "Third Wave Coffee - Bellandur Indiqube",
-    cat: "Food & Cafes",
-    desc: "Third Wave's Bellandur cafe at Indiqube Edge on the Outer Ring Road stretch.",
-    budget: "₹250-700",
-    dist: "Bellandur",
-    type: "Work"
-  },
-  {
-    name: "Third Wave Coffee - JP Nagar 7th Phase",
-    cat: "Food & Cafes",
-    desc: "Third Wave branch inside the Brigade Millennium campus on the JP Nagar side.",
-    budget: "₹250-700",
-    dist: "JP Nagar",
-    type: "Work"
-  },
-  {
-    name: "Third Wave Coffee - Rajajinagar",
-    cat: "Food & Cafes",
-    desc: "Third Wave's Rajajinagar outlet for coffee-led catchups and laptop sessions.",
-    budget: "₹250-700",
-    dist: "Rajajinagar",
-    type: "Work"
-  },
-  {
-    name: "Starbucks - Bellandur",
-    cat: "Food & Cafes",
-    desc: "Official Starbucks branch at Indiqube Lakeside in Bellandur.",
-    budget: "₹350-900",
-    dist: "Bellandur",
-    type: "Cafe Chain"
-  },
-  {
-    name: "Starbucks - Yelahanka",
-    cat: "Food & Cafes",
-    desc: "Official Starbucks outlet inside RMZ Galleria Mall in Yelahanka.",
-    budget: "₹350-900",
-    dist: "Yelahanka",
-    type: "Cafe Chain"
-  },
-  {
-    name: "Starbucks - Malleshwaram",
-    cat: "Food & Cafes",
-    desc: "Starbucks branch at Mantri Square serving the Malleshwaram side.",
-    budget: "₹350-900",
-    dist: "Malleshwaram",
-    type: "Cafe Chain"
-  },
-  {
-    name: "Starbucks - Devanahalli T2",
-    cat: "Food & Cafes",
-    desc: "Airport-side Starbucks in Kempegowda International Airport Terminal 2.",
-    budget: "₹400-1000",
-    dist: "Devanahalli",
-    type: "Airport Cafe"
-  },
-  {
-    name: "Araku Coffee - Indiranagar",
-    cat: "Food & Cafes",
-    desc: "Specialty coffee destination on 12th Main, HAL 2nd Stage, Indiranagar.",
-    budget: "₹350-900",
-    dist: "Indiranagar",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Kaze",
-    cat: "Food & Cafes",
-    desc: "High-rise Japanese restaurant on Lavelle Road known for skyline views and late-night service.",
-    budget: "₹2000-4500",
-    dist: "Lavelle Road",
-    type: "Luxury Dining"
-  },
-  {
-    name: "Wabi Sabi - The Oberoi",
-    cat: "Food & Cafes",
-    desc: "Japanese restaurant at The Oberoi, Bengaluru on MG Road.",
-    budget: "₹2500-5000",
-    dist: "MG Road",
-    type: "Luxury Dining"
-  },
-  {
-    name: "ALBA - JW Marriott",
-    cat: "Food & Cafes",
-    desc: "Italian fine-dining restaurant at JW Marriott Hotel Bengaluru.",
-    budget: "₹2500-5000",
-    dist: "Vittal Mallya Road",
-    type: "Luxury Dining"
-  },
-  {
-    name: "Bastian Garden City",
-    cat: "Food & Cafes",
-    desc: "St. Mark's Road destination for polished seafood, cocktails, and occasion dining.",
-    budget: "₹2000-4500",
-    dist: "St. Mark's Road",
-    type: "Premium Dining"
-  },
-  {
-    name: "23rd Street Pizza",
-    cat: "Food & Cafes",
-    desc: "Castle Street pizza restaurant with dine-in seating and late lunch-to-dinner service.",
-    budget: "₹500-1200",
-    dist: "Ashok Nagar",
-    type: "Pizza"
-  },
-  {
-    name: "Taco Street",
-    cat: "Food & Cafes",
-    desc: "Compact Indiranagar taco spot for casual Mexican bites and quick meals.",
-    budget: "₹250-700",
-    dist: "Indiranagar",
-    type: "Casual Food"
-  },
-  {
-    name: "Pizza 4P's",
-    cat: "Food & Cafes",
-    desc: "Indiranagar pizza restaurant known for house-made cheeses and reservation-heavy evenings.",
-    budget: "₹900-2000",
-    dist: "Indiranagar",
-    type: "Pizza"
-  },
-  {
-    name: "The Estate Deli",
-    cat: "Food & Cafes",
-    desc: "HAL 2nd Stage deli-style restaurant in Indiranagar serving burgers, sandwiches, and desserts.",
-    budget: "₹500-1200",
-    dist: "Indiranagar",
-    type: "Deli"
-  },
-  {
-    name: "Rumi - Indiranagar",
-    cat: "Food & Cafes",
-    desc: "Indiranagar Awadhi and Mughlai restaurant known for kebabs, pulao, and family-style dining.",
-    budget: "₹700-1600",
-    dist: "Indiranagar",
-    type: "Dinner"
-  },
-  {
-    name: "Bologna Italian Restaurant",
-    cat: "Food & Cafes",
-    desc: "100 Feet Road Italian restaurant in Indiranagar with pasta, pizza, and dessert-led dining.",
-    budget: "₹800-1800",
-    dist: "Indiranagar",
-    type: "Italian"
-  },
-  {
-    name: "Mara Coffee & Roastery",
-    cat: "Food & Cafes",
-    desc: "HSR Layout specialty coffee stop with roastery-led positioning.",
-    budget: "₹300-850",
-    dist: "HSR Layout",
-    type: "Specialty Coffee"
-  },
-  {
-    name: "Frullato",
-    cat: "Food & Cafes",
-    desc: "Jayanagar dessert and shake spot focused on thick shakes and takeaway sweets.",
-    budget: "₹200-500",
-    dist: "Jayanagar",
-    type: "Dessert"
-  },
-  {
-    name: "Water Monkey Cafe",
-    cat: "Food & Cafes",
-    desc: "Seshadripuram cafe near Sankey Road serving continental food and desserts in a work-friendly setting.",
-    budget: "₹250-700",
-    dist: "Seshadripuram",
-    type: "Cafe"
-  },
-  {
-    name: "Falak",
-    cat: "Food & Cafes",
-    desc: "Sunset-view restaurant and bar at The Leela Bhartiya City.",
-    budget: "₹1800-3800",
-    dist: "Thanisandra",
-    type: "Rooftop"
-  },
-  {
-    name: "Coila - Fire Grilled Kebabs",
-    cat: "Food & Cafes",
-    desc: "Koramangala grilled kebab and charcoal chicken spot at Soho Square.",
-    budget: "₹300-900",
-    dist: "Koramangala",
-    type: "Kebabs"
-  },
-  {
-    name: "The High Joint",
-    cat: "Food & Cafes",
-    desc: "Koramangala burger spot known for loaded fries and casual indoor-outdoor seating.",
-    budget: "₹400-900",
-    dist: "Koramangala",
-    type: "Burgers"
-  },
-  {
-    name: "Kahani - Craft Bar And Kitchen",
-    cat: "Food & Cafes",
-    desc: "Jalahalli rooftop-style bar and kitchen with North Indian, pasta, pizza, and biryani options.",
-    budget: "₹1200-2200",
-    dist: "Jalahalli",
-    type: "Resto-Bar"
-  },
-  {
-    name: "The Oterra",
-    cat: "Hotels & Stays",
-    desc: "Tripadvisor-listed luxury hotel in Electronics City known for business stays and multiple dining options.",
-    budget: "₹11000+",
-    dist: "Electronic City",
-    type: "Luxury Stay"
-  },
-  {
-    name: "Courtyard by Marriott Bengaluru Hebbal",
-    cat: "Hotels & Stays",
-    desc: "Hebbal Marriott hotel with modern rooms and a strong business-travel location.",
-    budget: "₹9000+",
-    dist: "Hebbal",
-    type: "Upscale Stay"
-  },
-  {
-    name: "Ramada Encore by Wyndham Bangalore Domlur",
-    cat: "Hotels & Stays",
-    desc: "Domlur hotel positioned close to Embassy Golf Links and the central business district.",
-    budget: "₹7000+",
-    dist: "Domlur",
-    type: "Business Stay"
-  },
-  {
-    name: "Four Seasons Hotel Bengaluru at Embassy ONE",
-    cat: "Hotels & Stays",
-    desc: "Luxury hotel at Embassy ONE on Bellary Road with skyline dining and high-end rooms.",
-    budget: "₹18000+",
-    dist: "Hebbal",
-    type: "Luxury Stay"
-  },
-  {
-    name: "La Marvella",
-    cat: "Hotels & Stays",
-    desc: "Luxury boutique hotel at South End Circle in Jayanagar.",
-    budget: "₹9000+",
-    dist: "Jayanagar",
-    type: "Boutique Stay"
-  },
-  {
-    name: "Fairfield By Marriott Bengaluru Outer Ring Road",
-    cat: "Hotels & Stays",
-    desc: "Outer Ring Road hotel in the Bellandur-Marathahalli corridor with Kava and BG's Poolside Bar & Grill.",
-    budget: "₹8000+",
-    dist: "Bellandur",
-    type: "Business Stay"
-  },
-  {
-    name: "The Den, Bengaluru",
-    cat: "Hotels & Stays",
-    desc: "Whitefield luxury hotel and staycation pick listed by Tripadvisor.",
-    budget: "₹10000+",
-    dist: "Whitefield",
-    type: "Luxury Stay"
-  },
-  {
-    name: "Taj MG Road Bengaluru",
-    cat: "Hotels & Stays",
-    desc: "MG Road luxury hotel for central stays, dining, and polished business travel.",
-    budget: "₹13000+",
-    dist: "MG Road",
-    type: "Luxury Stay"
-  },
-  {
-    name: "Loya",
-    cat: "Food & Cafes",
-    desc: "Taj West End's celebrated Indian restaurant featured on Tripadvisor's Bengaluru food list.",
-    budget: "₹2500-5000",
-    dist: "Race Course Road",
-    type: "Luxury Dining"
-  },
-  {
-    name: "Kebabs & Kurries",
-    cat: "Food & Cafes",
-    desc: "ITC Gardenia's signature North West Frontier restaurant on Residency Road.",
-    budget: "₹2200-4500",
-    dist: "Residency Road",
-    type: "Luxury Dining"
-  },
-  {
-    name: "Lotus Pavilion",
-    cat: "Food & Cafes",
-    desc: "Open-air dining pavilion at ITC Gardenia featured in Tripadvisor's Bengaluru eat-and-drink picks.",
-    budget: "₹1800-3800",
-    dist: "Residency Road",
-    type: "Premium Dining"
-  },
-  {
-    name: "Dakshin",
-    cat: "Food & Cafes",
-    desc: "ITC Windsor's South Indian restaurant highlighted by Tripadvisor.",
-    budget: "₹2000-4000",
-    dist: "Vasanth Nagar",
-    type: "South Indian Fine Dining"
-  },
-  {
-    name: "The Royal Afghan",
-    cat: "Food & Cafes",
-    desc: "ITC Windsor's award-winning Northwest Frontier restaurant with alfresco seating.",
-    budget: "₹2200-4500",
-    dist: "Vasanth Nagar",
-    type: "Luxury Dining"
-  },
-  {
-    name: "Cubbon Pavilion",
-    cat: "Food & Cafes",
-    desc: "Tripadvisor-listed dining destination at ITC Gardenia for international and healthy plates.",
-    budget: "₹1800-3500",
-    dist: "Residency Road",
-    type: "Buffet"
-  },
-  {
-    name: "One Atria Cafe",
-    cat: "Food & Cafes",
-    desc: "Race Course Road all-day dining restaurant featured on Tripadvisor's Bengaluru eat-and-drink list.",
-    budget: "₹1600-3200",
-    dist: "Race Course Road",
-    type: "Buffet"
-  },
-  {
-    name: "Dublin",
-    cat: "Food & Cafes",
-    desc: "Irish pub at ITC Windsor listed by Tripadvisor among Bengaluru's after-dark picks.",
-    budget: "₹1400-2800",
-    dist: "Vasanth Nagar",
-    type: "Pub"
-  },
-  {
-    name: "Hype",
-    cat: "Food & Cafes",
-    desc: "Rooftop bar pick from Tripadvisor's after-dark Bengaluru list.",
-    budget: "₹1500-3000",
-    dist: "Palace Road",
-    type: "Rooftop Bar"
-  },
-  {
-    name: "The Permit Room",
-    cat: "Food & Cafes",
-    desc: "Popular Bengaluru bar-and-food stop listed by Tripadvisor in the city's after-dark section.",
-    budget: "₹1000-2200",
-    dist: "Ashok Nagar",
-    type: "Bar"
-  },
-  {
-    name: "Toast and Tonic",
-    cat: "Food & Cafes",
-    desc: "Indiranagar bar and European-fusion dining room featured by Tripadvisor.",
-    budget: "₹1400-2800",
-    dist: "Indiranagar",
-    type: "Bar Dining"
-  },
-  {
-    name: "Farzi Cafe",
-    cat: "Food & Cafes",
-    desc: "UB City restaurant-bar from Tripadvisor's Bengaluru nightlife recommendations.",
-    budget: "₹1500-3000",
-    dist: "UB City",
-    type: "Nightlife Dining"
-  },
-  {
-    name: "Hard Rock Cafe",
-    cat: "Food & Cafes",
-    desc: "St. Mark's Road nightlife classic with live music, American bar food, and late-night energy.",
-    budget: "₹1800-3000",
-    dist: "St. Mark's Road",
-    type: "Live Music Bar"
-  },
-  {
-    name: "Loft 38",
-    cat: "Food & Cafes",
-    desc: "Indiranagar pub on 100 Feet Road known for loud DJ nights, loft-style interiors, and a party crowd.",
-    budget: "₹1800-2800",
-    dist: "Indiranagar",
-    type: "Nightclub"
-  },
-  {
-    name: "Sutra",
-    cat: "Food & Cafes",
-    desc: "Nightlife lounge at The Lalit Ashok in Seshadripuram with Chinese and continental menus.",
-    budget: "₹1600-2600",
-    dist: "Seshadripuram",
-    type: "Lounge"
-  },
-  {
-    name: "Bameys Restro Cafe",
-    cat: "Food & Cafes",
-    desc: "Koramangala Nepali restaurant known for momos, Wai Wai noodles, thukpa, and thakali plates.",
-    budget: "₹300-800",
-    dist: "Koramangala",
-    type: "Nepali"
-  },
-  {
-    name: "Hae Kum Gang",
-    cat: "Food & Cafes",
-    desc: "Long-running Korean restaurant on Castle Street known for kimbap, bibimbap, kimchi fried rice, and barbecue.",
-    budget: "₹700-1800",
-    dist: "Richmond Town",
-    type: "Korean"
-  },
-  {
-    name: "The Fisherman's Wharf",
-    cat: "Food & Cafes",
-    desc: "Sarjapur Road restaurant with Goan seafood, a bar, and live evening music.",
-    budget: "₹1000-2200",
-    dist: "Sarjapur Road",
-    type: "Seafood"
-  },
-  {
-    name: "Grasshopper",
-    cat: "Food & Cafes",
-    desc: "Romantic fine-dining destination in Bannerghatta Road with a tasting-menu style experience.",
-    budget: "₹2500-5000",
-    dist: "Bannerghatta Road",
-    type: "Fine Dining"
-  },
-  {
-    name: "Spice Terrace",
-    cat: "Food & Cafes",
-    desc: "JW Marriott Bengaluru's poolside Indian restaurant featured by MakeMyTrip.",
-    budget: "₹2000-4200",
-    dist: "Vittal Mallya Road",
-    type: "Luxury Dining"
-  }
-];
-</script>
+<script src="./places-extra.js"></script>
 <script>
 const APP_CONFIG = {
   // Set this after publishing, for example:
   // "https://yourusername.github.io/bangalore-picker/"
-  PUBLIC_SITE_URL: "",
+  PUBLIC_SITE_URL: "https://aryanswaroopportfolio.vercel.app/",
   // Set your GA4 Measurement ID, for example:
   // "G-XXXXXXXXXX"
   GA_MEASUREMENT_ID: "G-W3580RQR4W"
@@ -2680,6 +1823,9 @@ let activeAudience = "Anyone";
 let activeDistance = "Any Distance";
 let activeBudget = MAX_BUDGET_DEFAULT;
 let activeMood = "Any Mood";
+let openNowOnly = false;
+let favoritesOnly = false;
+let activeSort = "recommended";
 let userCoords = null;
 let savedDrawerMode = "favorites";
 const seenPlacesByPool = new Map();
@@ -2707,6 +1853,9 @@ const resultsListEl = document.getElementById("results-list");
 const moodGridEl = document.getElementById("mood-grid");
 const favoritesListEl = document.getElementById("favorites-list");
 const historyListEl = document.getElementById("history-list");
+const openNowToggleEl = document.getElementById("open-now-toggle");
+const favoritesOnlyToggleEl = document.getElementById("favorites-only-toggle");
+const sortSelectEl = document.getElementById("sort-select");
 const favoritesToggleBtnEl = document.getElementById("favorites-toggle-btn");
 const recentToggleBtnEl = document.getElementById("recent-toggle-btn");
 const savedCloseBtnEl = document.getElementById("saved-close-btn");
@@ -2756,6 +1905,8 @@ const searchSynonyms = {
   dessert: ["dessert", "desserts", "ice cream", "gelato", "pastry", "cake", "sweet"],
   sweets: ["dessert", "desserts", "ice cream", "gelato", "pastry", "cake", "sweet"],
   nightlife: ["nightlife", "bar", "pub", "brewpub", "club", "lounge", "late night"],
+  late: ["late", "late night", "night", "open late", "midnight", "1 am", "2 am"],
+  night: ["night", "late night", "open late", "midnight", "1 am", "2 am"],
   date: ["couple", "date", "aesthetic", "rooftop", "dessert", "luxury"],
   family: ["family", "park", "museum", "botanical", "lake", "hotel"],
   work: ["work", "wifi", "coffee", "cafe", "solo"],
@@ -3104,6 +2255,158 @@ function buildIntentKeywords(place) {
   return [...tags].join(" ");
 }
 
+function inferTiming(place) {
+  const text = normalizeSearchText(`${place.name} ${place.desc} ${place.cat} ${place.type}`);
+
+  if (place.cat === "Hotels & Stays") {
+    return {
+      openingHours: "24 Hours",
+      timingNote: "Hotel front desk typically available through the day and night.",
+      openLate: true
+    };
+  }
+
+  if (/temple|church|mosque/.test(text)) {
+    return {
+      openingHours: "6:00 AM - 12:00 PM • 5:00 PM - 8:30 PM",
+      timingNote: "Temple and worship timings can shift on festival days.",
+      openLate: false
+    };
+  }
+
+  if (/museum|gallery|planetarium|experience|palace/.test(text) || place.cat === "Culture & Art") {
+    return {
+      openingHours: "10:00 AM - 6:00 PM",
+      timingNote: "Usually daytime hours. Many of these are closed on Mondays.",
+      openLate: false
+    };
+  }
+
+  if (place.cat === "Parks & Nature" || /park|lake|garden|forest|sunrise/.test(text)) {
+    return {
+      openingHours: "6:00 AM - 6:30 PM",
+      timingNote: "Best earlier in the day. Entry may close before sunset.",
+      openLate: false
+    };
+  }
+
+  if (place.cat === "Markets & Streets") {
+    return {
+      openingHours: "10:00 AM - 9:00 PM",
+      timingNote: "Street timings vary. Go earlier for shopping and later for food streets.",
+      openLate: /food street|ramzan|night/.test(text)
+    };
+  }
+
+  if (place.cat === "Activities") {
+    if (/kart|bowling|gaming|escape|laser|snow|trampoline/.test(text)) {
+      return {
+        openingHours: "11:00 AM - 10:00 PM",
+        timingNote: "Indoor activity spots usually stay open into the evening.",
+        openLate: true
+      };
+    }
+    return {
+      openingHours: "9:00 AM - 8:00 PM",
+      timingNote: "Timings can vary by slot and booking availability.",
+      openLate: false
+    };
+  }
+
+  if (/pub|bar|brew|brewpub|club|lounge|nightlife|resto bar|restobar|rooftop/.test(text)) {
+    return {
+      openingHours: "12:00 PM - 1:00 AM",
+      timingNote: "Late-night place. Weekend closing may run a bit later.",
+      openLate: true
+    };
+  }
+
+  if (/biryani|mandi|kebab|shawarma|fried chicken|military hotel/.test(text)) {
+    const lateOpen = /late|night|empire|shawarma|kebab|mandi|fried chicken/.test(text);
+    return {
+      openingHours: lateOpen ? "11:00 AM - 1:00 AM" : "11:00 AM - 11:30 PM",
+      timingNote: lateOpen ? "Good late-night food option." : "Dinner-heavy spot; timings may stretch later on weekends.",
+      openLate: lateOpen
+    };
+  }
+
+  if (/dessert|ice cream|gelato|pastry|cake|sweet|shake/.test(text)) {
+    return {
+      openingHours: "11:00 AM - 12:00 AM",
+      timingNote: "Dessert places usually run late into the evening.",
+      openLate: true
+    };
+  }
+
+  if (/coffee|cafe|roastery|bakery|breakfast|brunch|darshini|dosa/.test(text)) {
+    if (/breakfast|darshini|dosa|coffee bar|veena stores|brahmin|taaza thindi|slv/.test(text)) {
+      return {
+        openingHours: "7:00 AM - 11:30 AM",
+        timingNote: "Morning-first spot. Best to go early.",
+        openLate: false
+      };
+    }
+    return {
+      openingHours: "8:00 AM - 11:00 PM",
+      timingNote: "Cafe-style timings. Good for breakfast, work, and evening plans.",
+      openLate: false
+    };
+  }
+
+  return {
+    openingHours: "11:00 AM - 10:30 PM",
+    timingNote: "Estimated general timing. Best to verify before going.",
+    openLate: false
+  };
+}
+
+function parseTimeToMinutes(value) {
+  const match = value.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (!match) return null;
+  let hours = Number(match[1]) % 12;
+  const minutes = Number(match[2]);
+  const meridian = match[3].toUpperCase();
+  if (meridian === "PM") hours += 12;
+  return hours * 60 + minutes;
+}
+
+function isPlaceOpenNow(place, now = new Date()) {
+  if (place.openingHours === "24 Hours") return true;
+  const primaryWindow = place.openingHours.split("•")[0]?.trim();
+  if (!primaryWindow || !primaryWindow.includes("-")) return false;
+
+  const [openText, closeText] = primaryWindow.split("-").map(part => part.trim());
+  const openMins = parseTimeToMinutes(openText);
+  const closeMins = parseTimeToMinutes(closeText);
+  if (openMins === null || closeMins === null) return false;
+
+  const nowMins = now.getHours() * 60 + now.getMinutes();
+  if (closeMins < openMins) {
+    return nowMins >= openMins || nowMins <= closeMins;
+  }
+  return nowMins >= openMins && nowMins <= closeMins;
+}
+
+function sortPlaces(pool) {
+  const list = pool.slice();
+  if (activeSort === "rating") return list.sort((a, b) => Number(b.rating) - Number(a.rating));
+  if (activeSort === "budget-low") return list.sort((a, b) => a.maxBudget - b.maxBudget);
+  if (activeSort === "budget-high") return list.sort((a, b) => b.maxBudget - a.maxBudget);
+  if (activeSort === "area") return list.sort((a, b) => a.area.localeCompare(b.area) || a.name.localeCompare(b.name));
+  if (activeSort === "open-late") return list.sort((a, b) => Number(b.openLate) - Number(a.openLate) || Number(b.rating) - Number(a.rating));
+  if (activeSort === "distance") {
+    return list.sort((a, b) => {
+      const aDist = getDistanceKm(a);
+      const bDist = getDistanceKm(b);
+      if (aDist === null && bDist === null) return a.name.localeCompare(b.name);
+      if (aDist === null) return 1;
+      if (bDist === null) return -1;
+      return aDist - bDist;
+    });
+  }
+  return list.sort((a, b) => getSearchScore(b, activeSearch) - getSearchScore(a, activeSearch) || Number(b.rating) - Number(a.rating));
+}
+
 const places = dedupedRawPlaces.map(place => ({
   ...place,
   area: inferArea(place),
@@ -3113,13 +2416,15 @@ const places = dedupedRawPlaces.map(place => ({
   bestTimes: inferBestTime(place),
   audienceTags: inferAudience(place),
   maxBudget: parseBudgetMax(place.budget),
-  hoursNote: /museum|gallery|art|planetarium|experience|palace/i.test(`${place.name} ${place.desc} ${place.type}`) ? "Likely closed Monday" : "Best to check timings before going",
+  ...inferTiming(place),
+  hoursNote: "",
   coords: null
 })).map(place => ({
   ...place,
+  hoursNote: `${place.openingHours} • ${/museum|gallery|art|planetarium|experience|palace/i.test(`${place.name} ${place.desc} ${place.type}`) ? "Likely closed Monday. " : ""}${place.timingNote}`,
   coords: inferCoords(place, place.area),
-  searchText: normalizeSearchText(`${place.name} ${place.dist} ${place.area} ${place.cat} ${place.type} ${place.desc} ${buildIntentKeywords(place)} ${place.bestTimes.join(" ")} ${place.audienceTags.join(" ")}`),
-  intentText: normalizeSearchText(`${place.name} ${place.dist} ${place.area} ${place.cat} ${place.type} ${place.desc} ${buildIntentKeywords(place)} ${place.bestTimes.join(" ")} ${place.audienceTags.join(" ")}`)
+  searchText: normalizeSearchText(`${place.name} ${place.dist} ${place.area} ${place.cat} ${place.type} ${place.desc} ${buildIntentKeywords(place)} ${place.bestTimes.join(" ")} ${place.audienceTags.join(" ")} ${place.openingHours} ${place.timingNote} ${place.openLate ? "open late late night" : ""}`),
+  intentText: normalizeSearchText(`${place.name} ${place.dist} ${place.area} ${place.cat} ${place.type} ${place.desc} ${buildIntentKeywords(place)} ${place.bestTimes.join(" ")} ${place.audienceTags.join(" ")} ${place.openingHours} ${place.timingNote} ${place.openLate ? "open late late night" : ""}`)
 }));
 
 const sortedAreas = ["All Areas", ...new Set(
@@ -3351,6 +2656,9 @@ function applyMood({
 
 function rerenderFilters() {
   renderMoodButtons();
+  openNowToggleEl.classList.toggle("active", openNowOnly);
+  favoritesOnlyToggleEl.classList.toggle("active", favoritesOnly);
+  sortSelectEl.value = activeSort;
   renderFilterGroup(filtersEl, cats, activeFilter, option => {
     activeFilter = option;
     activeMood = "Any Mood";
@@ -3381,13 +2689,15 @@ function rerenderFilters() {
 }
 
 function getFilteredPlaces() {
-  return places.filter(place => {
+  const filtered = places.filter(place => {
     const categoryMatch = activeFilter === "All" || place.cat === activeFilter;
     const areaMatch = activeArea === "All Areas" || place.area === activeArea;
     const searchMatch = !activeSearch || matchesSearchQuery(place, activeSearch);
     const timeMatch = activeTime === "Any Time" || place.bestTimes.includes(activeTime);
     const audienceMatch = activeAudience === "Anyone" || place.audienceTags.includes(activeAudience);
     const budgetMatch = place.maxBudget <= activeBudget;
+    const openNowMatch = !openNowOnly || isPlaceOpenNow(place);
+    const favoritesMatch = !favoritesOnly || isFavorite(place.name);
 
     let distanceMatch = true;
     if (activeDistance !== "Any Distance") {
@@ -3405,8 +2715,10 @@ function getFilteredPlaces() {
       }
     }
 
-    return categoryMatch && areaMatch && searchMatch && timeMatch && audienceMatch && budgetMatch && distanceMatch;
+    return categoryMatch && areaMatch && searchMatch && timeMatch && audienceMatch && budgetMatch && distanceMatch && openNowMatch && favoritesMatch;
   });
+
+  return sortPlaces(filtered);
 }
 
 function getSearchScore(place, query) {
@@ -3416,6 +2728,9 @@ function getSearchScore(place, query) {
 
   const tokens = tokenizeSearchQuery(normalizedQuery);
   if (!tokens.length) return place.intentText.includes(normalizedQuery) ? 20 : 0;
+
+  const lateNightIntent = tokens.some(token => ["late", "night", "nightlife", "midnight"].includes(token)) || normalizedQuery.includes("open late");
+  if (lateNightIntent && !place.openLate) return 0;
 
   let matchedTokens = 0;
   let score = 0;
@@ -3469,6 +2784,7 @@ function renderResultsList(pool) {
         </div>
       </div>
       <div class="result-desc">${place.desc}</div>
+      <div class="saved-meta">Hours • ${place.openingHours}${place.openLate ? " • Open late" : ""}</div>
       <div class="card-pills">
         <span class="pill pill-dist">${place.dist}</span>
         <span class="pill pill-budget">${place.budget}</span>
@@ -3543,6 +2859,7 @@ function renderPlace(place) {
     `<span class="pill pill-type">${place.type}</span>` +
     `<span class="pill pill-area">${place.area}</span>` +
     `<span class="pill pill-rating">${place.rating} ★</span>` +
+    `<span class="pill pill-type">${place.openingHours}</span>` +
     (place.bestTimes[0] ? `<span class="pill pill-type">${place.bestTimes[0]}</span>` : "");
   document.getElementById("c-note").textContent = place.hoursNote;
   document.getElementById("c-audience").innerHTML = place.audienceTags
@@ -3828,6 +3145,9 @@ function resetFilters(options = {}) {
   activeDistance = "Any Distance";
   activeBudget = MAX_BUDGET_DEFAULT;
   activeMood = "Any Mood";
+  openNowOnly = false;
+  favoritesOnly = false;
+  activeSort = "recommended";
   activeSearch = "";
   setSearchInputsValue("");
   budgetRangeEl.value = String(MAX_BUDGET_DEFAULT);
@@ -3955,6 +3275,23 @@ areaSelectEl.addEventListener("change", event => {
 budgetRangeEl.addEventListener("input", event => {
   activeBudget = Number(event.target.value);
   activeMood = "Any Mood";
+  updateCounter();
+});
+
+openNowToggleEl.addEventListener("click", () => {
+  openNowOnly = !openNowOnly;
+  activeMood = "Any Mood";
+  updateCounter();
+});
+
+favoritesOnlyToggleEl.addEventListener("click", () => {
+  favoritesOnly = !favoritesOnly;
+  activeMood = "Any Mood";
+  updateCounter();
+});
+
+sortSelectEl.addEventListener("change", event => {
+  activeSort = event.target.value;
   updateCounter();
 });
 
